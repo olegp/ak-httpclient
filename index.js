@@ -122,7 +122,7 @@ HttpClient.prototype = {
     var params = decodeParams(uri.query);
     var response = ak.requestHost(uri.domain, 
         { method: this.guts.method, path: uri.path, get: params, 
-          post: params, data: (this.guts.body || []).join('')});
+          data: (this.guts.body || []).join('')});
           
     return {status: response.status, 
             headers: response.headers, 
