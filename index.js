@@ -121,7 +121,8 @@ HttpClient.prototype = {
     var uri = parseUri(this.guts.url);
     var params = decodeParams(uri.query);
     var response = ak.requestHost(uri.domain, 
-        { method: this.guts.method, path: uri.path, get: params, 
+        { method: this.guts.method, path: uri.path, 
+          headers: this.guts.headers, get: params, 
           data: (this.guts.body || []).join('')});
           
     return {status: response.status, 
