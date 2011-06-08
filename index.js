@@ -120,7 +120,7 @@ HttpClient.prototype = {
     // NOTE only works with HTTP atm
     var uri = parseUri(this.guts.url);
     var params = decodeParams(uri.query);
-    var response = ak.requestHost(uri.domain, 
+    var response = ak.requestHost(uri.domain + ':' + (uri.port || 80), 
         { method: this.guts.method, path: uri.path, 
           headers: this.guts.headers, get: params, 
           data: (this.guts.body || []).join('')});
